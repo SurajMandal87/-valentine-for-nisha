@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import FloatingHearts from './components/FloatingHearts'
 import ProposalSection from './components/ProposalSection'
 import SlideshowSection from './components/SlideshowSection'
@@ -8,15 +8,31 @@ import './App.css'
 /**
  * 💖 Main App Component
  * Controls the page flow: Proposal → Love Message → Slideshow → Final Message
+ * Now with Bubu Mode 🧸 and personalized nicknames!
  */
 function App() {
   // Track which section is currently visible
   const [currentSection, setCurrentSection] = useState('proposal') // proposal | loveMessage | slideshow | final
+  // Bubu Mode 🧸 – extra cute mode toggle
+  const [bubuMode, setBubuMode] = useState(false)
+
+  const toggleBubuMode = useCallback(() => {
+    setBubuMode(prev => !prev)
+  }, [])
 
   return (
-    <div className="app">
+    <div className={`app ${bubuMode ? 'bubu-mode' : ''}`}>
       {/* Floating hearts always visible in background */}
-      <FloatingHearts />
+      <FloatingHearts bubuMode={bubuMode} />
+
+      {/* 🧸 Bubu Mode Toggle – always visible */}
+      <button
+        className={`bubu-mode-toggle ${bubuMode ? 'active' : ''}`}
+        onClick={toggleBubuMode}
+        title="Toggle Bubu Mode 🧸"
+      >
+        {bubuMode ? '🧸 Bubu Mode ON' : 'Show Bubu Mode 🧸'}
+      </button>
 
       {/* Section 1: The Big Proposal Question */}
       {currentSection === 'proposal' && (
@@ -43,10 +59,13 @@ function App() {
 
 /**
  * 💌 Love Message Section
- * Shown after Nisha clicks YES – displays a heartfelt message from Suraj
+ * Shown after Nisha clicks YES – displays a deeply personal heartfelt message
+ * Easter Egg: Click "Bubu" 5 times for a surprise popup 🧸
  */
 function LoveMessageSection({ onNext }) {
   const [visible, setVisible] = useState(false)
+  const [bubuClicks, setBubuClicks] = useState(0)
+  const [showEasterEgg, setShowEasterEgg] = useState(false)
 
   React.useEffect(() => {
     // Fade in after a short delay
@@ -54,28 +73,68 @@ function LoveMessageSection({ onNext }) {
     return () => clearTimeout(timer)
   }, [])
 
+  /** 🧸 Easter Egg: Click "Bubu" 5 times for surprise */
+  const handleBubuClick = () => {
+    const next = bubuClicks + 1
+    setBubuClicks(next)
+    if (next >= 5 && !showEasterEgg) {
+      setShowEasterEgg(true)
+      // Auto hide after 5 seconds
+      setTimeout(() => setShowEasterEgg(false), 5000)
+    }
+  }
+
   return (
     <section className={`love-message-section ${visible ? 'visible' : ''}`}>
+      {/* 🧸 Easter egg popup */}
+      {showEasterEgg && (
+        <div className="bubu-easter-egg">
+          <div className="easter-egg-teddy">🧸</div>
+          <p className="easter-egg-text">
+            Suraj loves his Bubu more than chocolate 🍫💖
+          </p>
+          <div className="easter-egg-hearts">💖💕💖💕💖</div>
+        </div>
+      )}
+
       <div className="love-message-card">
+        {/* Heartbeat animation behind */}
+        <div className="heartbeat-bg" aria-hidden="true">💖</div>
+
+        {/* 🧸 Floating stickers around the love letter */}
+        <img src="/stickers/21-5.thumb128.png" alt="sticker" className="love-sticker love-sticker-1" />
+        <img src="/stickers/27-1.thumb128.png" alt="sticker" className="love-sticker love-sticker-2" />
+        <img src="/stickers/6-2.thumb128.png" alt="sticker" className="love-sticker love-sticker-3" />
+
         <div className="love-message-emoji">💌</div>
-        <h2 className="love-message-title">A Letter For You</h2>
+        <h2 className="love-message-title">A Letter For My Bubu 🧸</h2>
         <div className="love-message-divider">~ ❤️ ~</div>
         <div className="love-message-text">
-          <p className="love-greeting">My Dearest Nisha ❤️</p>
-          <p>You are the most beautiful part of my life.</p>
-          <p>Every moment with you feels magical. ✨</p>
-          <p>Your smile lights up my entire world,</p>
-          <p>and your love makes everything worthwhile.</p>
+          <p className="love-greeting">
+            Nisha{' '}
+            <span className="bubu-clickable" onClick={handleBubuClick} role="button" tabIndex={0}>
+              Bubu
+            </span>{' '}
+            ❤️
+          </p>
+          <p>Mera baccha… 🥹</p>
+          <p>You are my peace,</p>
+          <p>my madness,</p>
+          <p>my Dudu 🐣,</p>
+          <p>my everything.</p>
           <br />
-          <p>Thank you for being mine,</p>
-          <p>for choosing me every single day,</p>
-          <p>and for making this life so beautiful. 🌹</p>
+          <p>When you smile, Babu,</p>
+          <p>my whole world glows. ✨</p>
+          <p>Every moment with you is like</p>
+          <p>the most beautiful Bollywood scene. 🎬💕</p>
           <br />
-          <p className="love-closing">I love you forever and always.</p>
-          <p className="love-signature">– Suraj 💖</p>
+          <p>Stay with me forever, okay? 🥹💖</p>
+          <br />
+          <p className="love-closing">I love you forever and always, Bby.</p>
+          <p className="love-signature">– Yours always, Suraj (Only yours 😌) 💖</p>
         </div>
         <button className="memories-btn" onClick={onNext}>
-          See Our Memories 💖
+          See Our Memories, Bubu 💖
         </button>
       </div>
     </section>
