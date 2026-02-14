@@ -25,7 +25,7 @@ function FinalMessageSection() {
     messages.forEach((_, index) => {
       setTimeout(() => {
         setShowLines(prev => [...prev, index])
-      }, 800 + index * 1200)
+      }, 1000 + index * 1500)
     })
 
     return () => clearTimeout(timer)
