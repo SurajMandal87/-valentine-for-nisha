@@ -12,13 +12,14 @@ import './ProposalSection.css'
  */
 
 const SAD_MESSAGES = [
-  { text: "Please don't say no 🥺", emoji: "😢" },
-  { text: "I'll be very sad 😭", emoji: "💔" },
-  { text: "Try again maybe? 💔", emoji: "🥺" },
-  { text: "You're breaking my heart 😭", emoji: "😢" },
-  { text: "Please reconsider! 🙏", emoji: "😠" },
-  { text: "Suraj will cry! 😭💔", emoji: "🥺" },
-  { text: "Just click YES already! 😤💕", emoji: "😤" },
+  { text: "Mera baccha, don't say no 🥺", emoji: "😢" },
+  { text: "Bubu pleaseee 😭❤️", emoji: "💔" },
+  { text: "Babu, try again maybe? 💔", emoji: "🥺" },
+  { text: "Bby you're breaking my heart 😭", emoji: "😢" },
+  { text: "Bubu please reconsider! 🧸🙏", emoji: "😠" },
+  { text: "Suraj will cry for his Bubu 😭💔", emoji: "🥺" },
+  { text: "Bby you can't escape me 😠💘", emoji: "😤" },
+  { text: "Dudu 🐣 says click YES!", emoji: "🐣" },
 ]
 
 function ProposalSection({ onYes }) {
@@ -126,19 +127,19 @@ function ProposalSection({ onYes }) {
 
       <div className="proposal-content">
         {/* Decorative emojis */}
-        <div className="proposal-decoration">💕 🌹 💕</div>
+        <div className="proposal-decoration">🧸 💕 🐣 💕 🧸</div>
 
         {/* Main heading */}
         <h1 className="proposal-title">
-          <span className="proposal-name">Nisha,</span>
+          <span className="proposal-name">Bubu 💖</span>
           <br />
           Will You Be My Valentine?
-          <span className="proposal-heart"> 💖</span>
+          <span className="proposal-heart"> 💘</span>
         </h1>
 
         {/* Subtext */}
         <p className="proposal-subtitle">
-          From <strong>Suraj</strong>, with all my love ❤️
+          From your <strong>Suraj</strong>, for his Mera Baccha 🥹❤️
         </p>
 
         {/* Sad message popup */}
@@ -179,18 +180,20 @@ function ProposalSection({ onYes }) {
         {/* Celebration text when YES is clicked */}
         {yesClicked && (
           <div className="yes-celebration">
-            <div className="celebration-emojis">🎉💖🥰💕🎊</div>
-            <h2 className="celebration-text">Yaaay! I knew it! 🥰</h2>
-            <p className="celebration-sub">You made me the happiest! 💖</p>
+            <div className="celebration-emojis">🎉🧸🥰💖🐣🎊</div>
+            <h2 className="celebration-text">Yaaay Bubu! I knew it! 🥰</h2>
+            <p className="celebration-sub">Mera Baccha made me the happiest! 💖</p>
           </div>
         )}
 
         {/* Attempt counter (shown after first NO attempt) */}
         {noAttempts > 0 && !yesClicked && (
           <p className="attempt-hint">
-            {noAttempts >= 3
-              ? "The NO button is scared of you 😅 Just say YES! 💖"
-              : `Hehe, nice try! 😄 (${noAttempts} attempt${noAttempts > 1 ? 's' : ''})`}
+            {noAttempts >= 5
+              ? "Bubu 🧸 the button ran away! Just say YES Babu! 💖"
+              : noAttempts >= 3
+              ? "Bby you can't escape me 😠💘 Just say YES!"
+              : `Hehe Bubu, nice try! 🧸 (${noAttempts} attempt${noAttempts > 1 ? 's' : ''})`}
           </p>
         )}
       </div>

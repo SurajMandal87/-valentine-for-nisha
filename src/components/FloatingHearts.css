@@ -41,3 +41,36 @@
     opacity: 0;
   }
 }
+
+/* 🧸 Bubu Mode – bigger, wobblier floats */
+.bubu-float {
+  animation-name: bubuFloatUp !important;
+}
+
+@keyframes bubuFloatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--heart-opacity, 0.6);
+    transform: translateY(-8vh) rotate(20deg) scale(1);
+  }
+  30% {
+    transform: translateY(-30vh) translateX(40px) rotate(-15deg) scale(1.3);
+  }
+  50% {
+    transform: translateY(-50vh) translateX(-30px) rotate(10deg) scale(1.1);
+  }
+  70% {
+    transform: translateY(-70vh) translateX(25px) rotate(-20deg) scale(1.2);
+  }
+  90% {
+    opacity: var(--heart-opacity, 0.6);
+    transform: translateY(-95vh) translateX(-15px) rotate(15deg) scale(1);
+  }
+  100% {
+    transform: translateY(-115vh) translateX(5px) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+}

@@ -11,9 +11,10 @@ function FinalMessageSection() {
   const [showLines, setShowLines] = useState([])
 
   const messages = [
-    { text: "Happy Valentine's Day Nisha 💘", className: 'line-main' },
-    { text: "Miss you a lot ❤️", className: 'line-miss' },
-    { text: "Please come fast, we will celebrate together 💑", className: 'line-come' },
+    { text: "Happy Valentine's Day, My Bubu 💘", className: 'line-main' },
+    { text: "Miss you a lot, Mera Baccha ❤️", className: 'line-miss' },
+    { text: "Please come fast Dudu… 🐣", className: 'line-come' },
+    { text: "We will celebrate together forever 💑", className: 'line-come' },
     { text: "Forever Yours, Suraj 💖", className: 'line-signature' },
   ]
 
@@ -34,7 +35,7 @@ function FinalMessageSection() {
     <section className={`final-section ${visible ? 'visible' : ''}`}>
       {/* Big sparkle decoration */}
       <div className="final-sparkles" aria-hidden="true">
-        {Array.from({ length: 20 }, (_, i) => (
+        {Array.from({ length: 25 }, (_, i) => (
           <span
             key={i}
             className="sparkle"
@@ -46,15 +47,17 @@ function FinalMessageSection() {
               fontSize: `${1 + Math.random() * 1.5}rem`,
             }}
           >
-            {['✨', '💖', '💕', '🌟', '💗'][Math.floor(Math.random() * 5)]}
+            {['✨', '💖', '💕', '🧸', '🐣', '💗', '🌟'][Math.floor(Math.random() * 7)]}
           </span>
         ))}
       </div>
 
       <div className="final-content">
-        {/* Heart decoration */}
+        {/* Heart decoration with stickers */}
         <div className="final-heart-deco">
+          <img src="/stickers/28-1.thumb128.png" alt="sticker" className="final-sticker final-sticker-left" />
           <span className="big-heart">💖</span>
+          <img src="/stickers/29-1.thumb128.png" alt="sticker" className="final-sticker final-sticker-right" />
         </div>
 
         {/* Staggered message lines */}
@@ -73,9 +76,13 @@ function FinalMessageSection() {
 
         {/* Bottom decoration */}
         <div className={`final-footer ${showLines.length >= messages.length ? 'show' : ''}`}>
-          <div className="footer-hearts">💕 💖 💕 💖 💕</div>
-          <p className="footer-text">Made with all my love for you 🌹</p>
-          <div className="footer-date">Valentine's Day 2026</div>
+          <div className="footer-stickers">
+            <img src="/stickers/21-5.thumb128.png" alt="sticker" className="footer-sticker" />
+            <img src="/stickers/6-2.thumb128.png" alt="sticker" className="footer-sticker" />
+          </div>
+          <div className="footer-hearts">🧸 💕 💖 💕 🐣</div>
+          <p className="footer-text">Made with all my love for you, Bubu 🌹</p>
+          <div className="footer-date">Valentine's Day 2026 • Suraj ❤️ Nisha</div>
         </div>
       </div>
     </section>

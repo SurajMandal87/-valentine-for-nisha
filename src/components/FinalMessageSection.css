@@ -172,6 +172,84 @@
 }
 
 /* ============================================
+   🧸🐣 Teddy & Chick Decorations
+   ============================================ */
+.deco-teddy,
+.deco-chick {
+  display: inline-block;
+  font-size: 2.5rem;
+  position: relative;
+  top: -5px;
+}
+
+.deco-teddy {
+  animation: teddyWobble 2s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+.deco-chick {
+  animation: chickBob 1.5s ease-in-out infinite;
+  margin-left: 8px;
+}
+
+@keyframes teddyWobble {
+  0%, 100% { transform: rotate(-5deg) translateY(0); }
+  25% { transform: rotate(5deg) translateY(-5px); }
+  50% { transform: rotate(-3deg) translateY(0); }
+  75% { transform: rotate(4deg) translateY(-3px); }
+}
+
+@keyframes chickBob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.1); }
+}
+
+/* 🧸 Final Section Stickers */
+.final-sticker {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
+}
+
+.final-sticker-left {
+  margin-right: 12px;
+  animation: teddyWobble 2.5s ease-in-out infinite;
+}
+
+.final-sticker-right {
+  margin-left: 12px;
+  animation: chickBob 2s ease-in-out infinite;
+}
+
+/* Footer stickers */
+.footer-stickers {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.footer-sticker {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+  animation: stickerPulse 3s ease-in-out infinite;
+}
+
+.footer-sticker:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes stickerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+/* ============================================
    📱 Responsive – Tablets & smaller
    ============================================ */
 @media (max-width: 600px) {
@@ -222,6 +300,16 @@
   .footer-date {
     font-size: 1.15rem;
   }
+
+  .final-sticker {
+    width: 56px;
+    height: 56px;
+  }
+
+  .footer-sticker {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* ============================================
@@ -258,5 +346,15 @@
 
   .footer-text {
     font-size: 0.85rem;
+  }
+
+  .final-sticker {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-sticker {
+    width: 32px;
+    height: 32px;
   }
 }
