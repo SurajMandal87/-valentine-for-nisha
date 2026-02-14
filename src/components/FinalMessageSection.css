@@ -1,0 +1,262 @@
+/* ============================================
+   💘 Final Message Section Styles
+   ============================================ */
+
+.final-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.final-section.visible {
+  opacity: 1;
+}
+
+/* Sparkle decorations scattered in background */
+.final-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkle {
+  position: absolute;
+  animation: sparkleAnim ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes sparkleAnim {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.5) rotate(0deg);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.2) rotate(20deg);
+  }
+}
+
+/* Content */
+.final-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Big heart decoration */
+.final-heart-deco {
+  margin-bottom: 2rem;
+}
+
+.big-heart {
+  font-size: 5rem;
+  display: inline-block;
+  animation: heartBeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.4));
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+/* Messages */
+.final-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.final-line {
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.final-line.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Main line – biggest and boldest */
+.line-main p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #e91e63, #c2185b, #9c27b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 10px rgba(233, 30, 99, 0.2));
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+  0% { filter: drop-shadow(0 0 8px rgba(233, 30, 99, 0.2)); }
+  100% { filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.4)); }
+}
+
+.line-miss p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: #e91e63;
+  font-weight: 600;
+}
+
+.line-come p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  color: #7b4f7b;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.line-signature p {
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
+  color: #c2185b;
+  filter: drop-shadow(0 2px 8px rgba(194, 24, 91, 0.15));
+}
+
+/* Footer decoration */
+.final-footer {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease 0.5s;
+}
+
+.final-footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-hearts {
+  font-size: 1.8rem;
+  letter-spacing: 8px;
+  margin-bottom: 1rem;
+  animation: footerPulse 3s ease-in-out infinite;
+}
+
+@keyframes footerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  color: #ab47bc;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.footer-date {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: #f48fb1;
+  margin-top: 0.8rem;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   📱 Responsive – Tablets & smaller
+   ============================================ */
+@media (max-width: 600px) {
+  .final-section {
+    padding: 2rem 1.2rem;
+    min-height: 100dvh;
+  }
+
+  .big-heart {
+    font-size: 3.5rem;
+  }
+
+  .final-heart-deco {
+    margin-bottom: 1.2rem;
+  }
+
+  .final-messages {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .line-main p {
+    font-size: 2rem;
+  }
+
+  .line-miss p {
+    font-size: 1.6rem;
+  }
+
+  .line-come p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .line-signature p {
+    font-size: 2rem;
+  }
+
+  .footer-hearts {
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+  }
+
+  .footer-text {
+    font-size: 0.95rem;
+  }
+
+  .footer-date {
+    font-size: 1.15rem;
+  }
+}
+
+/* ============================================
+   📱 iPhone 15 / small phones (≤ 400px)
+   ============================================ */
+@media (max-width: 400px) {
+  .final-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .big-heart {
+    font-size: 3rem;
+  }
+
+  .line-main p {
+    font-size: 1.75rem;
+  }
+
+  .line-miss p {
+    font-size: 1.4rem;
+  }
+
+  .line-come p {
+    font-size: 1rem;
+  }
+
+  .line-signature p {
+    font-size: 1.75rem;
+  }
+
+  .footer-hearts {
+    font-size: 1.1rem;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+  }
+}

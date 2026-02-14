@@ -1,0 +1,50 @@
+/* ============================================
+   💖 Valentine Website – Global Styles
+   ============================================ */
+
+/* CSS Reset & Base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Prevent horizontal overflow on mobile */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 25%, #f3e5f5 50%, #fce4ec 75%, #fff0f5 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #5d3a5e;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fce4ec;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f48fb1, #ce93d8);
+  border-radius: 10px;
+}
+
+/* Selection color */
+::selection {
+  background: #f48fb1;
+  color: white;
+}
