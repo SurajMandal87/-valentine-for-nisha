@@ -125,8 +125,8 @@ function SlideshowSection({ onComplete }) {
           return next
         })
         setIsTransitioning(false)
-      }, 600)
-    }, 4000)
+      }, 1000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [onComplete, hasCompleted])
